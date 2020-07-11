@@ -3,16 +3,23 @@ import BookItem from "../../components/bookitem/book_item";
 import "./style.css";
 
 export default function BookList(props) {
-  const { items, active } = props;
+  const { items, active, handleUpdate } = props;
+
+  const booksToDisplay = items.filter((book) =>
+    active === "all" ? book : book.shelf === active
+  );
+
   return (
     <div className="books_list">
-      {items
-        .filter((item) => {
-          return active === "all" ? item : item.shelf === active;
+      {typeof booksToDisplay !== "undefined" && booksToDisplay.length > 0 ? (
+        booksToDisplay.map((item) => {
+          return <BookItem item={item} onChanged={handleUpdate} />;
         })
-        .map((item) => {
-          return <BookItem item={item} />;
-        })}
+      ) : (
+        <div>
+          <p>There are no items</p>
+        </div>
+      )}
     </div>
   );
 }

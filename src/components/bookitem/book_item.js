@@ -3,7 +3,7 @@ import BookShelfChanger from "../bookshelf_changer/bookshelf_changer";
 import "./style.css";
 
 const BookItem = (props) => {
-  const { item } = props;
+  const { item, onChanged } = props;
   return (
     <div className="book_item" key={item.id}>
       <div
@@ -24,7 +24,11 @@ const BookItem = (props) => {
             return item + ", ";
           })}
         </div>
-        <BookShelfChanger value={item.shelf} onMove={(x, y) => {}} />
+        <BookShelfChanger
+          book={item}
+          value={item.shelf}
+          onChanged={onChanged}
+        />
       </div>
     </div>
   );
