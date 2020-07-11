@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Header from "../../components/header/header";
 import CategoryHeader from "../../components/category_header/category_header";
 import Books from "../../data/sample";
+import "./style.css";
+import BookItem from "../../components/bookitem/book_item";
 
 export default class home extends Component {
   state = {
@@ -43,15 +45,17 @@ export default class home extends Component {
           active={this.state.active}
           onItemClicked={this.handleShelfItemClick}
         />
-        {this.state.books
-          .filter((item) => {
-            return this.state.active == "all"
-              ? item
-              : item.shelf == this.state.active;
-          })
-          .map((item) => {
-            return <p>{item.title}</p>;
-          })}
+        <div className="books_list">
+          {this.state.books
+            .filter((item) => {
+              return this.state.active === "all"
+                ? item
+                : item.shelf === this.state.active;
+            })
+            .map((item) => {
+              return <BookItem item={item} />;
+            })}
+        </div>
       </div>
     );
   }
