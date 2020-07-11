@@ -1,0 +1,26 @@
+.category_header {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+.category_header > ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+}
+
+.category_item {
+  color: var(--text-primary);
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--primary);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 5px;
+}

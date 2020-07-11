@@ -4,14 +4,14 @@ import "./style.css";
 const header = (props) => (
   <header>
     <div className="title">
-      <h1>
+      <h2>
         <span role="img" aria-label="hi">
           👋
         </span>{" "}
         Hi There,
         <br />
         Reader
-      </h1>
+      </h2>
     </div>
     <div>
       <span role="img" aria-label="search">
