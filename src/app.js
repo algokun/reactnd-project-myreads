@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 // Component Imports
-import Header from "../../components/header/header";
-import CategoryHeader from "../../components/category_header/category_header";
-import Books from "../../data/sample";
-import BookItem from "../../components/bookitem/book_item";
-// Style Imports
-import "./style.css";
+import Header from "./components/header/header";
+import ShelfHeader from "./components/category_header/category_header";
+import BookList from "./components/book_list/book_list";
+import Books from "./data/sample";
 
 export default class home extends Component {
   state = {
@@ -42,22 +40,12 @@ export default class home extends Component {
     return (
       <div>
         <Header />
-        <CategoryHeader
+        <ShelfHeader
           shelfs={shelfs}
           active={this.state.active}
           onItemClicked={this.handleShelfItemClick}
         />
-        <div className="books_list">
-          {this.state.books
-            .filter((item) => {
-              return this.state.active === "all"
-                ? item
-                : item.shelf === this.state.active;
-            })
-            .map((item) => {
-              return <BookItem item={item} />;
-            })}
-        </div>
+        <BookList items={this.state.books} active={this.state.active} />
       </div>
     );
   }
