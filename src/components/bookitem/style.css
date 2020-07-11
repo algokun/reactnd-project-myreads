@@ -1,0 +1,16 @@
+.book_item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.book_cover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.book_author {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}

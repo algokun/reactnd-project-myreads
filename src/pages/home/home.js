@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+// Component Imports
 import Header from "../../components/header/header";
 import CategoryHeader from "../../components/category_header/category_header";
 import Books from "../../data/sample";
-import "./style.css";
 import BookItem from "../../components/bookitem/book_item";
+// Style Imports
+import "./style.css";
 
 export default class home extends Component {
   state = {
