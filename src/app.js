@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import Header from "./components/header/header";
 import ShelfHeader from "./components/category_header/category_header";
 import BookList from "./components/book_list/book_list";
-import Books from "./data/sample";
+import { getAll } from "./api/books_api";
 
 export default class home extends Component {
   state = {
-    books: Books["books"],
+    books: [],
     active: "all",
   };
 
@@ -16,6 +16,14 @@ export default class home extends Component {
       active: active,
     });
   };
+
+  componentDidMount() {
+    getAll().then((items) => {
+      this.setState(() => ({
+        books: items,
+      }));
+    });
+  }
 
   render() {
     const shelfs = [
@@ -46,6 +54,7 @@ export default class home extends Component {
           onItemClicked={this.handleShelfItemClick}
         />
         <BookList items={this.state.books} active={this.state.active} />
+        {console.log(this.state.books)}
       </div>
     );
   }
