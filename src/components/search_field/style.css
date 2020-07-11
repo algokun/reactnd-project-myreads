@@ -1,0 +1,21 @@
+.search_field_wrapper {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.back {
+  padding: 1rem;
+}
+.search_field_wrapper > input {
+  padding: 1rem;
+  width: 98vw;
+  border: none;
+  font-size: 2rem;
+  font-family: var(--font);
+}
+
+.search_field_wrapper > input:focus {
+  outline: none;
+}

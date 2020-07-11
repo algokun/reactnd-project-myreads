@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // Component Imports
-import Header from "./components/header/header";
-import ShelfHeader from "./components/category_header/category_header";
-import BookList from "./components/book_list/book_list";
-import { getAll, update } from "./api/books_api";
+import Header from "../components/header/header";
+import ShelfHeader from "../components/category_header/category_header";
+import BookList from "../components/book_list/book_list";
+import { getAll, update } from "../api/books_api";
 
 export default class Home extends Component {
   state = {

@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const header = (props) => (
   <header>
@@ -17,7 +18,7 @@ const header = (props) => (
       <span role="img" aria-label="search">
         🔍
       </span>{" "}
-      Want to find something to read? <a href="#">Click Here</a>
+      Want to find something to read? <Link to="/search">Click Here</Link>
     </div>
   </header>
 );
