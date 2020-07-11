@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+
+:root {
+  --background: #e4f9ff;
+  --font: "Jost", sans-serif;
+  --primary: #12cad6;
+  --text-primary: #000000;
+  --text-secondary: #606060;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font);
+  background-color: var(--background);
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
