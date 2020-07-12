@@ -14,7 +14,7 @@ export default function BookList(props) {
       {booksToDisplay && booksToDisplay.length > 0 ? (
         booksToDisplay.map((item) => {
           return (
-            <BookItem key={item.title} item={item} onChanged={handleUpdate} />
+            <BookItem key={item.id} item={item} onChanged={handleUpdate} />
           );
         })
       ) : (

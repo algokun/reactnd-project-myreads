@@ -15,6 +15,7 @@ export default class App extends Component {
     shelfs: Shelfs,
     activeShelf: "all",
     loading: false,
+    query: "",
   };
 
   componentDidMount() {
@@ -58,32 +59,31 @@ export default class App extends Component {
   };
 
   searchForBook = (query) => {
-    // do actual search
-    if (query.length > 0) {
-      this.handleSearch(query);
-    }
-    // skip this one
-    else {
-      this.setState({
-        searchResults: [],
-        error: false,
-      });
-    }
+    this.setState({
+      query: query,
+    });
+
+    this.handleSearch(this.state.query);
   };
 
   handleSearch = (query) => {
-    BooksAPI.search(query).then((result) => {
-      if (result.error) {
-        this.setState({
-          searchResults: [],
-          error: true,
-        });
-      }
-      this.setState({
-        searchResults: result,
-        error: false,
+    if (query.length > 0) {
+      BooksAPI.search(query).then((books) => {
+        if (books.error) {
+          this.setState({ searchResults: [], error: true });
+        } else {
+          // checking if the search result is from the latest search query.
+          if (this.state.query.length === 0) {
+            this.setState({ searchResults: [], error: false });
+            return;
+          }
+
+          this.setState({ searchResults: books, error: false, query: query });
+        }
       });
-    });
+    } else {
+      this.setState({ searchResults: [], error: false });
+    }
   };
 
   updateShelfHeaderItem = (active) => {
@@ -107,6 +107,7 @@ export default class App extends Component {
               items={this.state.books}
               active={this.state.activeShelf}
               isSearch={false}
+              error={false}
               handleUpdate={this.updateBook}
             />
           ) : (
