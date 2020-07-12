@@ -9,7 +9,7 @@ const BookItem = (props) => {
       <div
         className="book_cover"
         style={
-          typeof item.imageLinks.smallThumbnail != undefined
+          item.imageLinks
             ? {
                 backgroundImage: `url(${item.imageLinks.smallThumbnail})`,
               }

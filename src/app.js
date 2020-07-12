@@ -116,7 +116,13 @@ export default class App extends Component {
         <Route exact path="/search">
           <SearchField handleSearch={this.searchForBook} />
           <BookList
-            items={this.state.searchResults}
+            items={this.state.searchResults.map((searchedBook) => {
+              const myBook = this.state.books.filter(
+                (myBook) => myBook.id === searchedBook.id
+              )[0];
+              searchedBook.shelf = myBook ? myBook.shelf : "none";
+              return searchedBook;
+            })}
             handleUpdate={this.updateBook}
             error={this.state.error}
             isSearch={true}

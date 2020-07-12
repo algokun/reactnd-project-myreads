@@ -11,9 +11,11 @@ export default function BookList(props) {
 
   return (
     <div className="books_list">
-      {typeof booksToDisplay !== "undefined" && booksToDisplay.length > 0 ? (
+      {booksToDisplay && booksToDisplay.length > 0 ? (
         booksToDisplay.map((item) => {
-          return <BookItem item={item} onChanged={handleUpdate} />;
+          return (
+            <BookItem key={item.title} item={item} onChanged={handleUpdate} />
+          );
         })
       ) : (
         <div>
